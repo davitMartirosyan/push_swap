@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:43 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/08/31 14:53:52 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:46:39 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,11 @@ void rrb(Stack **b);
 void rrr(Stack **a, Stack **b);
 void b_fly(Stack **a, Stack **b, t_important *data, Actions action);
 void findhalf(Stack *tmp, Stack **b, int mx, int len);
+int generate(int len);
 
 //sorting parts
-void tripple(Stack **a);               //              \\ 3
-void quadruple(Stack **a, Stack **b); //                \\ 4
-void quintuple(Stack **a, Stack **b);//                  \\ 5
-void centuple(Stack **a, Stack **b, t_important *data); //\\ 100
-void fentuple(Stack **a, Stack **b,t_important *data); //  \\ 500
+void tripple(Stack **a);
+void quadruple(Stack **a, Stack **b);
+void quintuple(Stack **a, Stack **b);
+void centuple(Stack **a, Stack **b, t_important *data, Actions action);
 #endif

@@ -6,39 +6,30 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 23:50:37 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/08/31 15:22:58 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:56:54 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
+
 void a_b_sort(Stack **a, Stack **b, t_important *data, Actions action)
 {
-    int mx;
-    int len;
-    Stack *tmp;
-    
-    b_fly(a, b, data, action);
-    tmp = *b;
-    mx = data->length - 1;
-    len = data->length;
-    while (tmp)
+    if(data->length == 2)
     {
-        if (tmp->n == mx)
-        {
-            findhalf(tmp, b, mx, len);
-            action.pa(a, b);
-            tmp = *b;
-            mx--;
-            len--;
-            update_indacies(b);
-            update_indacies(a);
-        }
-        else
-            tmp = tmp->next;
+        if((*a)->n > (*a)->next->n)
+            action.sa(a, (*a)->next);
     }
+    else if(data->length == 3)
+        tripple(a);
+    else if(data->length == 4)
+        quadruple(a, b);
+    else if(data->length == 5)
+        quintuple(a, b);
+    else if(data->length > 5)
+        centuple(a, b, data, action);
 }
 
-void	findhalf(Stack *tmp, Stack **b, int mx, int len)
+void findhalf(Stack *tmp, Stack **b, int mx, int len)
 {
     if(tmp->idx <= (len / 2))
     {
@@ -52,4 +43,21 @@ void	findhalf(Stack *tmp, Stack **b, int mx, int len)
         while(++step < (len - tmp->idx))
             rrb(b);
     }
+}
+
+int generate(int len)
+{
+    int chunk;
+
+    if(chunk < 50)
+        chunk = 3 + (len - 6) / 7;
+    else if(chunk >= 50 && chunk < 100)
+        chunk = 10 + (len - 50) / 8;
+    else if(chunk >= 100 && chunk < 350)
+        chunk = 18 + (len - 100) / 9;
+    else if(chunk >= 350 && chunk <= 500)
+        chunk = 27 + (len - 350) / 15;
+    else if(chunk > 500)
+        chunk = 37 + (len - 500) / 20;
+    return chunk;
 }

@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:28:12 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/08/31 15:00:08 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:35:33 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void b_fly(Stack **a, Stack **b, t_important *data, Actions action)
 {
     int idx_c;
     int i;
+    int chunk;
     Stack *tmp_b;
     
+    chunk = generate(data->length);
     idx_c = 0;
     while((*a) != NULL)
     {
@@ -37,7 +39,7 @@ void b_fly(Stack **a, Stack **b, t_important *data, Actions action)
             action.rb(b);
             idx_c++;
         }
-        else if((*a)->n <= idx_c + 3)
+        else if((*a)->n <= idx_c + chunk)
         {
             action.pb(a, b);
             idx_c++;
