@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:43 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/01 15:46:39 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/02 20:52:34 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int generate(int len);
 
 //sorting parts
 void tripple(Stack **a);
-void quadruple(Stack **a, Stack **b);
-void quintuple(Stack **a, Stack **b);
+void quadruple(Stack **a, Stack **b, t_important *data);
+void quintuple(Stack **a, Stack **b, t_important *data);
 void centuple(Stack **a, Stack **b, t_important *data, Actions action);
 #endif

@@ -6,25 +6,25 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 23:50:37 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/01 15:56:54 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/02 20:52:49 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
 
-void a_b_sort(Stack **a, Stack **b, t_important *data, Actions action)
+void    a_b_sort(Stack **a, Stack **b, t_important *data, Actions action)
 {
-    if(data->length == 2)
+    if (data->length == 2)
     {
-        if((*a)->n > (*a)->next->n)
+        if ((*a)->n > (*a)->next->n)
             action.sa(a, (*a)->next);
     }
     else if(data->length == 3)
         tripple(a);
     else if(data->length == 4)
-        quadruple(a, b);
+        quadruple(a, b, data);
     else if(data->length == 5)
-        quintuple(a, b);
+        quintuple(a, b, data);
     else if(data->length > 5)
         centuple(a, b, data, action);
 }

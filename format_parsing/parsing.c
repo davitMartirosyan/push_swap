@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:16:21 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/08/28 16:08:17 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/02 20:02:42 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,15 @@ void store(Stack **a, t_important *data)
     int i;
     
     while(*a) a = &((*a)->next);
-    i = 0;
-    while(i < data->length)
+    i = -1;
+    while(++i < data->length)
     {
        *a = malloc(sizeof **a);
        (*a)->n = data->collection_of_ints[i];
+       (*a)->idx = i;
        a = &((*a)->next);
-       i++;
     }
+    (*a) = NULL;
 }
 
 int check_stack_length(Stack *stack)
