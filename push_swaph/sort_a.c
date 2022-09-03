@@ -29,7 +29,7 @@ void    a_b_sort(Stack **a, Stack **b, t_important *data, Actions action)
         centuple(a, b, data, action);
 }
 
-void findhalf(Stack *tmp, Stack **b, int mx, int len)
+void findhalf(Stack *tmp, Stack **b, int len)
 {
     if(tmp->idx <= (len / 2))
     {
@@ -49,15 +49,16 @@ int generate(int len)
 {
     int chunk;
 
-    if(chunk < 50)
+    chunk = 1;
+    if(len < 50)
         chunk = 3 + (len - 6) / 7;
-    else if(chunk >= 50 && chunk < 100)
+    else if(len >= 50 && len < 100)
         chunk = 10 + (len - 50) / 8;
-    else if(chunk >= 100 && chunk < 350)
+    else if(len >= 100 && len < 350)
         chunk = 18 + (len - 100) / 9;
-    else if(chunk >= 350 && chunk <= 500)
+    else if(len >= 350 && len <= 500)
         chunk = 27 + (len - 350) / 15;
-    else if(chunk > 500)
+    else if(len > 500)
         chunk = 37 + (len - 500) / 20;
     return chunk;
 }

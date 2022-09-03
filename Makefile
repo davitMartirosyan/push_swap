@@ -1,38 +1,38 @@
-NAME    = push_swap
-LIBFT   = libft.a
-PRINTF  = libftprintf.a
-HEADER  = ./includes/header_push_swap.h
-OBJS_DIR = objs/
-SRC = $(wildcard ./format_parsing/*.c) \
-		$(wildcard ./helpers/*.c) \
-	 	$(wildcard ./push_swaph/*.c)
-OBJS = $(SRC:.c=.o)
-CC = gcc
+NAME = push_swap
+LIBFT = ./libft/libft.a
+PRINTF  = ./ft_printf/libftprintf.a
+
+LIBFT_ARCHIVE = libft.a
+PRINTF_ARCHIVE = libftprintf.a
+
 FLAGS = -Wall -Wextra -Werror
 
 
-all: $(NAME)
+HEADER = includes/header_push_swap.h
+SRC = $(wildcard ./format_parsing/*.c) $(wildcard ./helpers/*.c) $(wildcard ./push_swaph/*.c)
+OBJ = $(patsubst %.c, %.o, $(SRC))
 
-$(NAME) : $(LIBFT) $(PRINTF) $(OBJS)
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-$(LIBFT) :
+all : $(NAME)
+
+$(NAME) : $(OBJ) $(LIBFT_ARCHIVE) $(PRINTF_ARCHIVE)
+	@clang $(FLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
+
+$(LIBFT_ARCHIVE) :
 	@cd ./libft && make
 
-$(PRINTF) :
-	@cd ./ft_printf/ && make
+$(PRINTF_ARCHIVE) :
+	@cd ./ft_printf && make
 
-# $(OBJS_DIR)%.o : $(SRC)
-# 	@mkdir -p $(OBJS_DIR)
-# 	@$(CC) $(FLAGS) -c $< -o $@
+%.o : %.c $(HEADER) ./libft/libft.h ./ft_printf/include/header.h
+	@clang $(FLAGS) -c $< -o $@
 
 clean :
-	@rm -rf $(OBJS_DIR)
-	@rm -f $(OBJS)
+	@rm -rf $(OBJ)
+	@cd ./libft && make clean
+	@cd ./ft_printf && make clean
 
 fclean : clean
-	@rm -rf $(OBJS)
+	@rm $(NAME)
 	@cd ./libft/ && make fclean
 	@cd ./ft_printf/ && make fclean
-
-	

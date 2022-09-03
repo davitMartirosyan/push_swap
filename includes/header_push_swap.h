@@ -94,7 +94,7 @@ void rra(Stack **a);
 void rrb(Stack **b);
 void rrr(Stack **a, Stack **b);
 void b_fly(Stack **a, Stack **b, t_important *data, Actions action);
-void findhalf(Stack *tmp, Stack **b, int mx, int len);
+void findhalf(Stack *tmp, Stack **b, int len);
 int generate(int len);
 
 //sorting parts

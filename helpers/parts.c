@@ -85,7 +85,7 @@ void centuple(Stack **a, Stack **b, t_important *data, Actions action)
     {
         if (tmp->n == mx)
         {
-            findhalf(tmp, b, mx, len);
+            findhalf(tmp, b, len);
             action.pa(a, b);
             tmp = *b;
             mx--;

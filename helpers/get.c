@@ -25,9 +25,7 @@ int is_sorted(int *ints, int len)
 void b_fly(Stack **a, Stack **b, t_important *data, Actions action)
 {
     int idx_c;
-    int i;
     int chunk;
-    Stack *tmp_b;
     
     chunk = generate(data->length);
     idx_c = 0;
@@ -66,7 +64,7 @@ void print_stack(Stack *stack)
     Stack *tmp = stack;
     while(tmp != NULL)
     {
-        ft_printf("idx : %d | n : %d\n", tmp->idx, tmp->n);
+        ft_printf("%d, ", tmp->n);
         tmp = tmp->next;
     }
 }
