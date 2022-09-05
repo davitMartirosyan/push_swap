@@ -31,8 +31,10 @@ int main(int ac, char **av)
     b = NULL;
     store(&a, data);
     a_b_sort(&a, &b, data, action);
+    print_stack(a);
     return (0);
 }
+
 
 // gcc main.c   ../libft/libft.a   ../ft_printf/libftprintf.a
 

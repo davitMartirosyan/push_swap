@@ -64,9 +64,10 @@ void print_stack(Stack *stack)
     Stack *tmp = stack;
     while(tmp != NULL)
     {
-        ft_printf("%d, ", tmp->n);
+        ft_printf("{%d} : {%d}\n", tmp->idx, tmp->n);
         tmp = tmp->next;
     }
+    // ft_printf("\n");
 }
 
 Actions init(void)

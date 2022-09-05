@@ -48,27 +48,41 @@ void quadruple(Stack **a, Stack **b, t_important *data)
 void quintuple(Stack **a, Stack **b, t_important *data)
 {
     int max;
-    int step;
-    int idx_c;
+    int len;
+    int steps;
     Stack *tmp;
 
-    tmp = *a;
-    step = 2;
     max = data->length - 1;
-    while(tmp->n != max && step > 0)
+    len = data->length;
+    steps = 2;
+    tmp = (*a);
+    while(tmp)
     {
         if(tmp->n == max)
         {
-            idx_c = -1;
-            while(++idx_c < tmp->idx)
-                ra(a);
+            findhalf(tmp, a, len);
             pb(a, b);
+            tmp = *a;
+            len--;
             max--;
-            step--;
+            steps--;
+            update_indacies(a);
         }
-        tmp = tmp->next;
+        else
+            tmp = tmp->next;
+        if(steps == 0)
+            break;
     }
-    // ft_printf("5\n");
+    to_a(a, b);
+}
+
+void to_a(Stack **a, Stack **b)
+{
+    tripple(a);
+    pa(a, b);
+    ra(a);
+    pa(a,b);
+    ra(a);
 }
 
 void centuple(Stack **a, Stack **b, t_important *data, Actions action)

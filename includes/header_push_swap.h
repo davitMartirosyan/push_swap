@@ -102,4 +102,5 @@ void tripple(Stack **a);
 void quadruple(Stack **a, Stack **b, t_important *data);
 void quintuple(Stack **a, Stack **b, t_important *data);
 void centuple(Stack **a, Stack **b, t_important *data, Actions action);
+void to_a(Stack **a, Stack **b);
 #endif
