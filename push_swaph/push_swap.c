@@ -37,8 +37,6 @@ int	main(int ac, char **av)
 	b = NULL;
 	store(&a, data);
 	a_b_sort(&a, &b, data, action);
-	for(int a = 0; a < data->length; a++)
-		ft_printf("%s\n", data->split[a]);
 	cleanup(a, b, data);
 	return (0);
 }
