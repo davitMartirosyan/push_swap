@@ -53,25 +53,22 @@ void quintuple(Stack **a, Stack **b, t_important *data)
     Stack *tmp;
 
     max = data->length - 1;
-    len = data->length;
+    len = data->length + 1;
     steps = 2;
     tmp = (*a);
-    while(tmp)
+    while(tmp && steps)
     {
         if(tmp->n == max)
         {
-            findhalf(tmp, a, len);
+            findhalf(tmp, a, --len);
             pb(a, b);
             tmp = *a;
-            len--;
             max--;
             steps--;
             update_indacies(a);
         }
         else
             tmp = tmp->next;
-        if(steps == 0)
-            break;
     }
     to_a(a, b);
 }
