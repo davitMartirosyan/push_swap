@@ -79,8 +79,6 @@ void	store(t_stack **a, t_import *data)
 		a = &((*a)->next);
 	}
 	(*a) = NULL;
-	// free(data->collection_of_ints);
-	// free(data->collection);
 }
 
 int	check_stack_length(t_stack *stack)

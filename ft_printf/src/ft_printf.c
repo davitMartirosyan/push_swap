@@ -16,11 +16,9 @@ int	ft_printf(const char *placeholder, ...)
 {
 	int		symbols;
 	int		i;
-	int		c;
 	va_list	rest;
 
 	i = 0;
-	c = 0;
 	symbols = 0;
 	va_start(rest, placeholder);
 	while (placeholder[i])

@@ -34,11 +34,8 @@ void	__store__(t_import *data)
 		if (ft_atoi(data->split[i]) < INT_MIN
 			|| ft_atoi(data->split[i]) > INT_MAX)
 			errno("[Collection Error] : MIN_MAX Error");
-		// if(!ft_atoi(data->split[i]))
-		// 	errno("[Collection Error] : NaN");
 		data->collection_of_ints[i] = ft_atoi(data->split[i]);
 	}
-	
 }
 
 void	__sorted__indacies(t_import *data)
@@ -65,6 +62,7 @@ void	__sorted__indacies(t_import *data)
 			}
 		}
 	}
+	free(sorted);
 }
 
 int	__repeats__(t_import *data)
@@ -87,10 +85,10 @@ int	__repeats__(t_import *data)
 int	__check__collection(t_import *data)
 {
 	if (!data->collection)
-		errno("[Collection Error] : NaN");
+		return (0);
 	if (__repeats__(data))
-		errno("[Collection Error] : Same Num");
+		return (0);
 	if (is_sorted(data->collection_of_ints, data->length))
-		ft_printf("is sorted\n");
+		return (0);
 	return (1);
 }
