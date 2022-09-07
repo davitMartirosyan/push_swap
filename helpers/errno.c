@@ -6,14 +6,14 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:43:11 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/08/22 12:55:40 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/07 22:02:28 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
 
-int errno(char *errmsg)
+int	errno(char *errmsg)
 {
-    ft_printf("%s", errmsg);
-    exit(3);
+	ft_printf("%s", errmsg);
+	exit(3);
 }

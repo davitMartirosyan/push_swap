@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 18:22:50 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/04/03 21:25:27 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/07 22:15:18 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	counter;
-	int	syb;
+	int			i;
+	long int	counter;
+	long int	syb;
 
 	i = 0;
 	counter = 0;
@@ -33,9 +33,6 @@ int	ft_atoi(const char *nptr)
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
 	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		counter = counter * 10 + nptr[i] - '0';
-		i++;
-	}
+		counter = counter * 10 + nptr[i++] - '0';
 	return (syb * counter);
 }

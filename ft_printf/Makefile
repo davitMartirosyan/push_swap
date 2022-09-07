@@ -1,17 +1,16 @@
-ARCHIVE=libftprintf.a
-SRC_FOLDER=src
-SRC=$(wildcard $(SRC_FOLDER)/*.c)
-OBJ=$(SRC:.c=.o)
-CC=gcc
-CC_FL=-Wall -Wextra -Werror
+ARCHIVE    = libftprintf.a
+SRC_FOLDER = src
+SRC        = $(wildcard $(SRC_FOLDER)/*.c)
+OBJ        = $(SRC:.c=.o)
+CC         = cc
+CFLAGS     = -Wall -Wextra -Werror
 all: $(ARCHIVE)
 
 $(ARCHIVE) : $(OBJ)
 	@ar r $(ARCHIVE) $(OBJ)
 
 $(SRC_FOLDER)%.c : $(SRC)
-	@$(CC) $(CC_FL) $< -c $@
-	@echo compiling $<
+	@$(CC) $(CFLAGS) $< -c $@
 
 clean :
 	rm -f $(SRC_FOLDER)/*.o

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 20:17:29 by dmartiro          #+#    #+#              #
-#    Updated: 2022/04/04 18:29:37 by dmartiro         ###   ########.fr        #
+#    Updated: 2022/09/07 21:23:21 by dmartiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,18 +65,15 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 OBJSB = $(SRCSB:.c=.o)
 OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CC = gcc
-
-CC_FLAGS = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
-	@clang $(CC_FLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "Libft Done !"
 
 all: $(NAME)
 

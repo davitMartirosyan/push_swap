@@ -6,13 +6,13 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:16:21 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/02 20:02:42 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/07 22:15:42 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
 
-void	stack_nums_counter(char **av, t_important *data)
+void	stack_nums_counter(char **av, t_import *data)
 {
 	int	i;
 	int	charcount;
@@ -24,29 +24,28 @@ void	stack_nums_counter(char **av, t_important *data)
 	data->size = charcount;
 }
 
-static int	check_char(char c, t_important *data)
+static int	check_char(char c, t_import *data)
 {
-	if ((c < '0' || c > '9') && 
-		c != ' ' && c != '-')
+	if ((c < '0' || c > '9')
+		&& c != ' ' && c != '-'
+		&& c != '+')
 	{
-		data->collection = NULL;       
+		data->collection = NULL;
 		return (0);
 	}
-    return (1);
+	return (1);
 }
 
-void	collect(char **av, t_important *data)
+void	collect(char **av, t_import *data)
 {
 	int		i;
-    int		c;
-    int		j;
-    char	*str;
+	int		c;
+	int		j;
+	char	*str;
 
 	i = 0;
 	j = -1;
 	str = malloc(sizeof(char) * ((data->size * 2) + 1));
-	if (!str)
-		return ;
 	while (av[++i])
 	{
 		c = -1;
@@ -65,11 +64,12 @@ void	collect(char **av, t_important *data)
 	data->collection = str;
 }
 
-void	store(Stack **a, t_important *data)
+void	store(t_stack **a, t_import *data)
 {
 	int	i;
 
-	while (*a) a = &((*a)->next);
+	while (*a)
+		a = &((*a)->next);
 	i = -1;
 	while (++i < data->length)
 	{
@@ -79,11 +79,13 @@ void	store(Stack **a, t_important *data)
 		a = &((*a)->next);
 	}
 	(*a) = NULL;
+	// free(data->collection_of_ints);
+	// free(data->collection);
 }
 
-int	check_stack_length(Stack *stack)
+int	check_stack_length(t_stack *stack)
 {
-	Stack	*t;
+	t_stack	*t;
 	int		i;
 
 	t = stack;
