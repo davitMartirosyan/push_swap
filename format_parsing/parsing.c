@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:16:21 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/08 20:35:53 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:38:33 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,15 @@ void	stack_nums_counter(char **av, t_import *data)
 	data->size = charcount;
 }
 
-static int	check_char(char c, char d, t_import *data)
+static int	check_char(char c, char d)
 {	
 	if ((c < '0' || c > '9')
 		&& c != ' ' && c != '-' && c != '+')
-	{
-		data->collection = NULL;
 		return (0);
-	}
 	else if (d == '-' || d == '+')
-	{
-		data->collection = NULL;
 		return (0);
-	}
 	else if ((c == '-' || c == '+') && (d < '0' || d > '9'))
-	{
-		data->collection = NULL;
 		return (0);
-	}
 	return (1);
 }
 
@@ -60,8 +51,11 @@ void	collect(char **av, t_import *data)
 		c = -1;
 		while (av[i][++c])
 		{
-			if (!check_char(av[i][c], av[i][c + 1], data))
+			if (!check_char(av[i][c], av[i][c + 1]))
+			{
+				data->collection = NULL;
 				return ;
+			}
 			str[++j] = av[i][c];
 		}
 		str[++j] = ' ';
