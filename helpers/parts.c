@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 18:44:36 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/07 19:51:47 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/08 18:41:59 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,13 @@ void	to_a(t_stack **a, t_stack **b)
 	ra(a);
 }
 
-void	centuple(t_stack **a, t_stack **b, t_import *data, t_actions action)
+void	centuple(t_stack **a, t_stack **b, t_import *data)
 {
 	int		mx;
 	int		len;
 	t_stack	*tmp;
 
-	b_fly(a, b, data, action);
+	b_fly(a, b, data);
 	tmp = *b;
 	mx = data->length - 1;
 	len = data->length;
@@ -108,7 +108,7 @@ void	centuple(t_stack **a, t_stack **b, t_import *data, t_actions action)
 		if (tmp->n == mx)
 		{
 			findhalf(tmp, b, len, 'b');
-			action.pa(a, b);
+			pa(a, b);
 			tmp = *b;
 			mx--;
 			len--;

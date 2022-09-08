@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 02:35:43 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/07 22:12:50 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/08 19:39:21 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	__collecting_ints(t_import *data)
 void	__store__(t_import *data)
 {
 	int	i;
+	int	a;
 
+	a = -1;
 	i = 0;
 	data->split = ft_split(data->collection, ' ');
 	while (data->split[i])
@@ -36,6 +38,9 @@ void	__store__(t_import *data)
 			errno("[Collection Error] : MIN_MAX Error");
 		data->collection_of_ints[i] = ft_atoi(data->split[i]);
 	}
+	while (data->split[++a])
+		free(data->split[a]);
+	free(data->split);
 }
 
 void	__sorted__indacies(t_import *data)
@@ -79,6 +84,7 @@ int	__repeats__(t_import *data)
 			if (data->collection_of_ints[i] == data->collection_of_ints[c])
 				return (1);
 	}
+	free(data->collection_of_ints);
 	return (0);
 }
 
@@ -89,6 +95,6 @@ int	__check__collection(t_import *data)
 	if (__repeats__(data))
 		return (0);
 	if (is_sorted(data->collection_of_ints, data->length))
-		return (0);
+		return (1);
 	return (1);
 }

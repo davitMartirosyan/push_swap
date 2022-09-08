@@ -6,18 +6,18 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 23:50:37 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/07 19:50:53 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/08 18:42:20 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
 
-void	a_b_sort(t_stack **a, t_stack **b, t_import *data, t_actions action)
+void	a_b_sort(t_stack **a, t_stack **b, t_import *data)
 {
 	if (data->length == 2)
 	{
 		if ((*a)->n > (*a)->next->n)
-			action.sa(a, (*a)->next);
+			sa(a, (*a)->next);
 	}
 	else if (data->length == 3)
 		tripple(a);
@@ -26,7 +26,7 @@ void	a_b_sort(t_stack **a, t_stack **b, t_import *data, t_actions action)
 	else if (data->length == 5)
 		quintuple(a, b, data);
 	else if (data->length > 5)
-		centuple(a, b, data, action);
+		centuple(a, b, data);
 }
 
 void	findhalf(t_stack *tmp, t_stack **b, int len, char s)

@@ -24,7 +24,7 @@ $(LIBFT_ARCHIVE) :
 $(PRINTF_ARCHIVE) :
 	@cd ./ft_printf && make
 
-%.o : %.c 
+%.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 re : fclean all

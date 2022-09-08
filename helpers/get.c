@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:28:12 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/07 19:14:49 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/08 18:40:49 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_sorted(int *ints, int len)
 	return (is_sorted(ints, len - 1));
 }
 
-void	b_fly(t_stack **a, t_stack **b, t_import *data, t_actions action)
+void	b_fly(t_stack **a, t_stack **b, t_import *data)
 {
 	int	idx_c;
 	int	chunk;
@@ -32,17 +32,17 @@ void	b_fly(t_stack **a, t_stack **b, t_import *data, t_actions action)
 	{
 		if ((*a)->n <= idx_c)
 		{
-			action.pb(a, b);
-			action.rb(b);
+			pb(a, b);
+			rb(b);
 			idx_c++;
 		}
 		else if ((*a)->n <= idx_c + chunk)
 		{
-			action.pb(a, b);
+			pb(a, b);
 			idx_c++;
 		}
 		else
-			action.ra(a);
+			ra(a);
 	}
 	update_indacies(b);
 }
@@ -71,23 +71,4 @@ void	print_stack(t_stack *stack)
 		ft_printf("{%d} : {%d}\n", tmp->idx, tmp->n);
 		tmp = tmp->next;
 	}
-}
-
-t_actions	init(void)
-{
-	t_actions	*init;
-
-	init = (t_actions *)malloc(sizeof(*init));
-	init->pa = &pa;
-	init->pb = &pb;
-	init->sa = &sa;
-	init->sb = &sb;
-	init->ss = &ss;
-	init->ra = &ra;
-	init->rb = &rb;
-	init->rr = &rr;
-	init->rra = &rra;
-	init->rrb = &rrb;
-	init->rrr = &rrr;
-	return (*init);
 }
