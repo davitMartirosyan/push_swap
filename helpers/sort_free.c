@@ -6,13 +6,13 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 02:38:39 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/07 22:03:59 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/11 04:41:54 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
 
-void	___bubble___(int *arrtmp, int length)
+void	___bubble___(long int *arrtmp, int length)
 {
 	int	i;
 	int	c;

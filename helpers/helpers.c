@@ -6,13 +6,13 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 02:35:43 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/08 19:39:21 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/14 00:36:17 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header_push_swap.h"
 
-void	__collecting_ints(t_import *data)
+void	collecting_ints(t_import *data)
 {
 	__store__(data);
 	__sorted__indacies(data);
@@ -29,13 +29,13 @@ void	__store__(t_import *data)
 	while (data->split[i])
 		i++;
 	data->length = i;
-	data->collection_of_ints = malloc(sizeof(int) * (i));
+	data->collection_of_ints = malloc(sizeof(long int) * (i));
 	i = -1;
 	while (data->split[++i])
 	{
 		if (ft_atoi(data->split[i]) < INT_MIN
 			|| ft_atoi(data->split[i]) > INT_MAX)
-			errno("[Collection Error] : MIN_MAX Error");
+			errno();
 		data->collection_of_ints[i] = ft_atoi(data->split[i]);
 	}
 	while (data->split[++a])
@@ -45,12 +45,12 @@ void	__store__(t_import *data)
 
 void	__sorted__indacies(t_import *data)
 {
-	int	*sorted;
-	int	i;
-	int	c;
+	long int	*sorted;
+	int			i;
+	int			c;
 
 	i = -1;
-	sorted = malloc(sizeof(int) * data->length);
+	sorted = malloc(sizeof(long int) * data->length);
 	while (++i < data->length)
 		sorted[i] = data->collection_of_ints[i];
 	___bubble___(sorted, data->length);
@@ -60,14 +60,13 @@ void	__sorted__indacies(t_import *data)
 		c = -1;
 		while (++c < data->length)
 		{
-			if (sorted[i] == data->collection_of_ints[c])
+			if (sorted[c] == data->collection_of_ints[i])
 			{
-				data->collection_of_ints[c] = i;
+				data->collection_of_ints[i] = c;
 				break ;
 			}
 		}
 	}
-	free(sorted);
 }
 
 int	__repeats__(t_import *data)

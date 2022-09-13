@@ -16,7 +16,7 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(LIBFT_ARCHIVE) $(PRINTF_ARCHIVE)
-	@$(CC)  $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(LIBFT_ARCHIVE) :
 	@cd ./libft && make
@@ -25,6 +25,7 @@ $(PRINTF_ARCHIVE) :
 	@cd ./ft_printf && make
 
 %.o : %.c
+	@echo "Compiling" $@
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 re : fclean all

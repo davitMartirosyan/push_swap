@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:20:43 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/08 18:40:35 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/13 20:09:33 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void		collect(char **av, t_import *data);
 void		store(t_stack **a, t_import *data);
 
 //Helpers
-void		__collecting_ints(t_import *data);
+void		collecting_ints(t_import *data);
 void		__sorted__indacies(t_import *data);
-void		___bubble___(int *arrtmp, int length);
+void		___bubble___(long int *arrtmp, int length);
 void		__store__(t_import *data);
 int			is_sorted(int *ints, int len);
 int			__repeats__(t_import *data);
@@ -60,7 +60,7 @@ void		update_indacies(t_stack **tmp);
 void		print_stack(t_stack *stack);
 
 //Error functions
-int			errno(char *errmsg);
+int			errno(void);
 
 //sorting algorithm functions
 void		a_b_sort(t_stack **a, t_stack **b, t_import *d);
