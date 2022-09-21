@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:29:13 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/13 20:05:35 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/15 20:10:06 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	stack_nums_counter(av, data);
 	collect(av, data);
 	if (!__check__collection(data))
-		errno("Error");
+		errno();
 	collecting_ints(data);
 	store(&a, data);
 	a_b_sort(&a, &b, data);
