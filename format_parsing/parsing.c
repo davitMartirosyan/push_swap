@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:16:21 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/21 11:24:06 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:36:09 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	check_char(char c, char d)
 
 	if ((c > '0' && c < '9') && c != ' ' && flag < 11)
 		flag++;
-	if (flag >= 11)
+	if (flag >= 14)
 		return (0);
 	if (c == ' ')
 		flag = 0;
