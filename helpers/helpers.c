@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 02:35:43 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/14 00:36:17 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:09:57 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	__store__(t_import *data)
 	while (data->split[i])
 		i++;
 	data->length = i;
-	data->collection_of_ints = malloc(sizeof(long int) * (i));
+	data->collection_of_ints = malloc(sizeof(int) * (i));
 	i = -1;
 	while (data->split[++i])
 	{
@@ -93,7 +93,5 @@ int	__check__collection(t_import *data)
 		return (0);
 	if (__repeats__(data))
 		return (0);
-	if (is_sorted(data->collection_of_ints, data->length))
-		return (1);
 	return (1);
 }

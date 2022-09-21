@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:16:21 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/09/13 19:47:32 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:24:06 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,15 @@ void	stack_nums_counter(char **av, t_import *data)
 }
 
 static int	check_char(char c, char d)
-{	
+{
+	static int	flag = 0;
+
+	if ((c > '0' && c < '9') && c != ' ' && flag < 11)
+		flag++;
+	if (flag >= 11)
+		return (0);
+	if (c == ' ')
+		flag = 0;
 	if ((c < '0' || c > '9')
 		&& c != ' ' && c != '-' && c != '+')
 		return (0);
